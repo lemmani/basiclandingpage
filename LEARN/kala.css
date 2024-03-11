@@ -1,0 +1,61 @@
+
+html {
+    font-size: 22px;
+    background-color: #6B00D6 ;
+    font-family: 'Poppins', sans-serif;
+    padding: 5rem;
+    padding-top: 0%;
+    
+    
+}
+nav {
+    overflow: hidden; /* Clear float */
+    color: white;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+    font-weight: bold;
+}
+nav ul li:last-child {
+    margin-right: 0;
+    float: right; /* Float the last item to the right */
+    
+}
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 40px;
+    
+
+}
+body {
+    font-family: 'Poppins', sans-serif; /* Use Poppins font for body text */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif; /* Use Roboto font for headings */
+    text-align: center;
+    font-size: 100px;
+    color: white;
+    padding-top: 5%;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.image-container {
+    text-align: center; /* Optional: Centers the images within the container */
+    padding-top: 120px;
+}
+
+.image-container img {
+    display: inline-block;
+    margin: 0 10px; /* Optional: Adds space between the images */
+}
