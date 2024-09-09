@@ -23,8 +23,8 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #6B00D6 ;
-           /*background: linear-gradient(to right,#9B00D6 ,#6B00D6 );*/
+            background: linear-gradient(to right,#9B00D6 ,#6B00D6 );
+          
             color: white;
             min-height: 100vh;
             display: flex;
@@ -65,7 +65,7 @@
 
         nav a:hover {
             text-decoration: underline;
-            text-underline-offset: 4px;
+            text-underline-offset: 2px;
         }
 
         main {
@@ -80,6 +80,7 @@
             display: grid;
             gap: 1.5rem;
             align-items: center;
+            
         }
 
         @media (min-width: 1024px) {
@@ -104,6 +105,10 @@
             h1 {
                 font-size: 3.75rem;
             }
+        }
+
+        img {
+            margin-top: 10px;
         }
 
         .hero p {
@@ -165,12 +170,10 @@
 
         .hero-image {
             width: 100%;
-            max-width: 550px;
             height: auto;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
+            max-width: 100%;
+            object-fit: contain;
             border-radius: 0.75rem;
-            overflow: hidden;
         }
 
         .features {
@@ -334,7 +337,7 @@
                             <a href="#" class="button button-secondary">Download for Android</a>
                         </div>
                     </div>
-                    <img src="kalamock.jpeg" alt="Hero" class="hero-image">
+                    <img src="Rectangle.png" alt="Hero" class="hero-image">
                 </div>
             </div>
         </section>
@@ -388,3 +391,5 @@
     </footer>
 </body>
 </html>
+
+
