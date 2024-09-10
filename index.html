@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KALA - Fintech Solution for swift and easy payments">
     <title>KALA - Fintech Solution</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -23,18 +26,13 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(to right,#9B00D6 ,#6B00D6 );
-          
+            background-color: #6B00D6;
             color: white;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            line-height: 1.5;
         }
 
         .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 100%;
             padding: 0 1rem;
         }
 
@@ -73,25 +71,49 @@
         }
 
         .hero {
-            padding: 3rem 0;
+            padding: 4rem 0 0; /* Removed bottom padding */
         }
 
         .hero-content {
-            display: grid;
-            gap: 1.5rem;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            
+            gap: 2rem;
+            max-width: 1200px; /* Limit maximum width for larger screens */
+            margin: 0 auto; /* Center the content */
         }
 
-        @media (min-width: 1024px) {
+        .hero-text {
+            flex: 1;
+            max-width: 600px; /* Limit text width for better readability */
+        }
+
+        .hero-image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 500px; /* Adjust this value to your preference */
+            height: auto;
+            object-fit: contain;
+        }
+
+        @media (max-width: 1024px) {
             .hero-content {
-                grid-template-columns: 1fr 400px;
+                flex-direction: column;
+                text-align: center;
             }
-        }
 
-        @media (min-width: 1280px) {
-            .hero-content {
-                grid-template-columns: 1fr 600px;
+            .hero-text {
+                max-width: 100%;
+            }
+
+            .hero-image {
+                max-width: 80%; /* Adjust for smaller screens */
             }
         }
 
@@ -125,14 +147,9 @@
 
         .button-group {
             display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        @media (min-width: 400px) {
-            .button-group {
-                flex-direction: row;
-            }
+            justify-content: flex-start; /* Aligns buttons to the left */
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
 
         .button {
@@ -168,14 +185,6 @@
             color: #6B00D6;
         }
 
-        .hero-image {
-            width: 100%;
-            height: auto;
-            max-width: 100%;
-            object-fit: contain;
-            border-radius: 0.75rem;
-        }
-
         .features {
             background-color: #f4f4f5;
             padding: 3rem 0;
@@ -205,22 +214,22 @@
 
         .features-content {
             display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
-            align-items: center;
-        }
-
-        @media (min-width: 1024px) {
-            .features-content {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .feature-list {
-            list-style-type: none;
+            margin-top: 2rem;
         }
 
         .feature-item {
-            margin-bottom: 1.5rem;
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
 
         .feature-item h3 {
@@ -232,16 +241,6 @@
 
         .feature-item p {
             color: #6b7280;
-        }
-
-        .features-image {
-            width: 100%;
-            max-width: 550px;
-            height: auto;
-            aspect-ratio: 16 / 9;
-            object-fit: cover;
-            border-radius: 0.75rem;
-            overflow: hidden;
         }
 
         .download {
@@ -267,6 +266,10 @@
             color: #6b7280;
             max-width: 700px;
             margin: 0 auto 2rem;
+        }
+
+        .download .button-group {
+            justify-content: center; /* Center the buttons */
         }
 
         footer {
@@ -308,10 +311,71 @@
         .footer-links a:hover {
             text-decoration: underline;
         }
-        .button-group {
-        display: flex;
-        justify-content: center; /* Centers the buttons horizontally */
-        align-items: center; /* Centers the buttons vertically if the container has a height */
+
+        /* Add smooth scrolling for better user experience */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Improve button accessibility */
+        .button:focus {
+            outline: 2px solid white;
+            outline-offset: 2px;
+        }
+
+        /* Improve image loading */
+        .hero-image, .features-image {
+            loading: lazy;
+        }
+
+        /* Improve accessibility and interactivity */
+        .button, nav a {
+            transition: all 0.3s ease;
+        }
+
+        .button:hover, nav a:hover {
+            transform: translateY(-2px);
+        }
+
+        .button:active, nav a:active {
+            transform: translateY(1px);
+        }
+
+        /* Add animation to hero content */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content > div {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Improve responsiveness */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+            }
+
+            nav {
+                margin-top: 1rem;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .button-group {
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -329,19 +393,21 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <div>
-                        <h1>Make payments swiftly with ease</h1>
-                        <p>Download the Kala app to manage your finances on the go.</p>
+                    <div class="hero-text">
+                        <h1>Swift and easy payments with KALA</h1>
+                        <p>Experience seamless transactions and financial management with our cutting-edge fintech solution.</p>
                         <div class="button-group">
-                            <a href="#" class="button button-primary">Download for iOS</a>
-                            <a href="#" class="button button-secondary">Download for Android</a>
+                            <a href="#" class="button button-primary">Get Started</a>
+                            <a href="#" class="button button-secondary">Learn More</a>
                         </div>
                     </div>
-                    <img src="Rectangle.png" alt="Hero" class="hero-image">
+                    <div class="hero-image-container">
+                        <img src="Rectangle.png" alt="Hero" class="hero-image">
+                    </div>
                 </div>
             </div>
         </section>
-        <section class="features">
+        <section class="features" id="features">
             <div class="container">
                 <div class="features-header">
                     <div class="badge">Key Features</div>
@@ -349,21 +415,18 @@
                     <p>Our Kala fintech solution offers a suite of powerful features to help you manage your finances with ease.</p>
                 </div>
                 <div class="features-content">
-                    <ul class="feature-list">
-                        <li class="feature-item">
-                            <h3>Automated Invoicing</h3>
-                            <p>Generate and send invoices with a few clicks, and automatically track payments.</p>
-                        </li>
-                        <li class="feature-item">
-                            <h3>Expense Tracking</h3>
-                            <p>Easily categorize and monitor your business expenses to stay on top of your finances.</p>
-                        </li>
-                        <li class="feature-item">
-                            <h3>Financial Reporting</h3>
-                            <p>Generate comprehensive financial reports to gain valuable insights into your business performance.</p>
-                        </li>
-                    </ul>
-                    <img src="Screenshot 2024-04-05 at 23.06.28.png" alt="Features" class="features-image" width="100px" height="1200px">
+                    <div class="feature-item">
+                        <h3>Automated Invoicing</h3>
+                        <p>Generate and send invoices with a few clicks, and automatically track payments.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Expense Tracking</h3>
+                        <p>Easily categorize and monitor your business expenses to stay on top of your finances.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Financial Reporting</h3>
+                        <p>Generate comprehensive financial reports to gain valuable insights into your business performance.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -389,7 +452,41 @@
             </div>
         </div>
     </footer>
+    <script>
+        // Add smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add intersection observer for lazy loading images
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.removeAttribute('loading');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => imageObserver.observe(img));
+
+        // Add simple form validation
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // Add your form validation logic here
+                console.log('Form submitted');
+            });
+        }
+    </script>
 </body>
 </html>
-
-
